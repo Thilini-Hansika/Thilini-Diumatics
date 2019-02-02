@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title  style="font-weight:bold; font-size:15px">Inventory Management System</title>
+            </f:facet>
+        </h:head>
+
+        <h:body style="font-size: 14px;" > 
+            <p:spinner />
+
+            <style>
+/*
+                .close-btn{
+                    margin: 12px 12px 0px 0px;
+                    float: left;
+                }
+                .right-btn{
+                    float: right;
+                    margin: 12px 0px 0px 12px;
+                }
+                #headerL > .ui-layout-unit-content {
+                    padding: .2em 0;
+                    border: 0 none;
+                    overflow: auto;
+                    background-color: #457fca;
+                }
+
+                #menuL > .ui-layout-unit-content {
+                    padding: 0;
+                    border: 0 none;
+                    overflow: auto;
+                    box-shadow: 2px 0 20px -2px #888;
+                    margin-top: -8px;
+                }
+                .ui-menu {
+                    width: auto; 
+                    padding: .3em;
+                    position: relative;
+                    outline: 0 none;
+                    background: #c4c4c4;
+                }
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                li a{
+                    display: block;
+                    color: #000;
+                    padding: 8px 16px;
+                    text-decoration: none;
+                }
+
+                li a.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+                li a:hover:not(.active) {
+                    background-color: #457fca;
+                    color: white;
+                }*/
+            </style>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit id="headerL" position="north" size="60" resizable="false" 
+                              style="padding: 0px;" closable="true" collapsible="true">
+
+                    <div style="margin-top: 10px;margin-left: 10px;">
+                        <p:outputLabel value="Inventory Management Management" style="font-size: 26px;font-family: sans-serif;"/>
+                    </div>
+                    
+                </p:layoutUnit>
+
+                <p:layoutUnit id="menuL" position="west" size="230" collapsible="true">
+                    <h:form>
+                        <ul>
+                            <li><p:commandLink value="Dashboard" action="dashboard?faces-redirect=true"/></li>
+                        </ul>
+                    </h:form>
+
+                 <h:form>
+                        <p:growl>
+                            <p:autoUpdate />
+                        </p:growl>
+
+                        <p:panelMenu style="width:300px">
+                            <p:submenu label="User Management">
+                                <p:menuitem value="Create User" action="#{menuView.save}" icon="ui-icon fa-save" />
+                                <p:menuitem value="Create Role" action="#{menuView.update}"  icon="pi pi-refresh" />
+                            </p:submenu>
+                            <p:submenu label="Store Management">
+                                <p:menuitem value="Create Branch" action="#{menuView.delete}"  ajax="false" icon="pi pi-times"/>
+                                <p:menuitem value="Create Category" action="#{menuView.delete}"  ajax="false" icon="pi pi-times"/>
+                                <p:menuitem value="Create Sub Category" action="#{menuView.delete}"  ajax="false" icon="pi pi-times"/>
+                                <p:menuitem value="Create Item" action="#{menuView.delete}"  ajax="false" icon="pi pi-times"/>
+                                <p:menuitem value="Create Suppliers" action="#{menuView.delete}"  ajax="false" icon="pi pi-times"/>
+                            </p:submenu>
+                            
+                            <p:submenu label="Navigations" >
+                                <p:submenu label="Links" icon="pi pi-home">
+                                    <p:submenu label="PrimeFaces" icon="pi pi-briefcase">
+                                        <p:menuitem value="Home" url="http://www.primefaces.org" icon="pi pi-home" />
+                                        
+                                    </p:submenu>
+                                </p:submenu>
+                                <p:menuitem value="Mobile" icon="pi pi-mobile" />
+                            </p:submenu>
+                        </p:panelMenu>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit style="font-size: 12px;text-align: center;border: 0px;padding-top: 10px" position="south" size="30" closable="true" collapsible="true">
+                    Copyright @ 2019, Diumotics. All right reserved
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" style="border: 0px">
+
+                    <ui:insert name="content"> 
+
+                    </ui:insert>
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
